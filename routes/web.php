@@ -67,7 +67,11 @@ Route::post('color','UsersController@color')->name('color');
 Route::resource('clients', 'ClientsController');
 //GESTIONAR PERSONAL
 Route::resource('personals', 'PersonalsController');
+//CASO DE USO 2 GESTIONAR PRODUCTOS
+Route::resource('products', 'ProductsController');
 
+//CASO DE USO 4 GESTIONAR GARANTIAS
+Route::resource('warranties', 'WarrantiesController');
 
 
 

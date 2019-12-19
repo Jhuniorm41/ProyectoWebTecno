@@ -8,38 +8,32 @@
                 <form method="post" action="{{route('products.store')}}">
                     @csrf
                     <div class="form-group">
-                        <label for="nombre">Codigo</label>
-                        <input type="number" class="form-control" id="code" name="code">
+                        <label for="codigo">Codigo</label>
+                        <input type="number" class="form-control" id="code" name="code" required>
                     </div>
                     <div class="form-group">
                         <label for="name">Nombre</label>
-                        <input type="text" class="form-control" id="name" name="name" >
+                        <input type="text" class="form-control" id="name" name="name" required>
                     </div>
                     <div class="form-group">
-                        <label for="brand">Marca</label>
-                        <input type="text" class="form-control" id="brand" name="brand" >
-                    </div>
-                    <div class="form-group">
-                        <label for="model">Modelo</label>
-                        <input type="text" class="form-control" id="model" name="model" >
-                    </div>
-                    <div class="form-group">
-                        <label for="telefono">Precio de Compra</label>
-                        <input type="number" class="form-control" id="purchase_price" name="purchase_price">
-                    </div>
-                    <div class="form-group">
-                        <label for="telefono">Precio de Venta</label>
-                        <input type="number" class="form-control" id="sale_cost" name="sale_cost">
-                    </div>
-                    <div class="form-group">
-                        <label for="stock">Stock</label>
-                        <input type="number" class="form-control" id="stock" name="stock">
+                        <label for="brand">Codigo de Venta</label>
+                        <input type="text" class="form-control" id="sale_code" name="sale_code"  required>
                     </div>
                     <div class="form-group">
                         <label for="telefono">Categoria del producto</label>
-                        <select class="form-control" id="category_id" name="category_id">
+                        <select class="form-control" id="type_product_id" name="type_product_id">
+
                             @foreach($categories as $category)
                                 <option value="{{$category->id}}">{{$category->description}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Cliente</label>
+                        <select class="form-control" id="client_id" name="client_id">
+
+                            @foreach($clients as $client)
+                                <option value="{{$client->id}}">{{$client->name}}</option>
                             @endforeach
                         </select>
                     </div>

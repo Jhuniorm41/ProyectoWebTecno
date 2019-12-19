@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PersonalsTableSeeder::class);
         $this->call(ClientsTableSeeder::class);
         $this->call(PagesTableSeeder::class);
+        $this->call(TypeProductsSeeder::class);
     }
 }

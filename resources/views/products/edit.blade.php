@@ -7,39 +7,32 @@
             @csrf
             @method('patch')
             <div class="form-group">
-                <label for="nombre">Codigo</label>
-                <input type="number" class="form-control" id="code" name="code" value="{{$product->code}}">
+                <label for="codigo">Codigo</label>
+                <input type="number" class="form-control" id="code" name="code" value="{{$product->code}}" required>
             </div>
             <div class="form-group">
                 <label for="name">Nombre</label>
-                <input type="text" class="form-control" id="name" name="name" value="{{$product->code}}">
+                <input type="text" class="form-control" id="name" name="name" value="{{$product->name}}" required>
             </div>
             <div class="form-group">
-                <label for="nombre">Marca</label>
-                <input type="text" class="form-control" id="brand" name="brand" value="{{$product->brand}}">
+                <label for="brand">Codigo de Venta</label>
+                <input type="text" class="form-control" id="sale_code" name="sale_code" value="{{$product->sale_code}}" required>
             </div>
-            <div class="form-group">
-                <label for="nombre">Modelo</label>
-                <input type="text" class="form-control" id="model" name="model" value="{{$product->model}}">
-            </div>
-            <div class="form-group">
-                <label for="telefono">Precio de Compra</label>
-                <input type="number" class="form-control" id="purchase_price" name="purchase_price" value="{{$product->purchase_price}}">
-            </div>
-            <div class="form-group">
-                <label for="telefono">Precio de Venta</label>
-                <input type="number" class="form-control" id="sale_cost" name="sale_cost" value="{{$product->sale_cost}}">
-            </div>
-            <div class="form-group">
-                        <label for="stock">Stock</label>
-                        <input type="number" class="form-control" id="stock" name="stock">
-                    </div>
             <div class="form-group">
                 <label for="telefono">Categoria del producto</label>
-                <select class="form-control" id="category_id" name="category_id">
-                    <option  selected value="{{$product->category->id}}">{{$product->category->description}}</option>
+                <select class="form-control" id="type_product_id" name="type_product_id">
+                    <option value="{{$product->type_product->id}}">{{$product->type_product->description}}</option>
                     @foreach($categories as $category)
                         <option value="{{$category->id}}">{{$category->description}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Cliente">Cliente</label>
+                <select class="form-control" id="client_id" name="client_id">
+                    <option value="{{$product->client_id}}">{{$product->client->name}}</option>
+                    @foreach($clients as $client)
+                        <option value="{{$client->id}}">{{$client->name}}</option>
                     @endforeach
                 </select>
             </div>

@@ -82,7 +82,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#"><i class="fas fa-fw fa-cog"></i>
+            <a class="nav-link collapsed" href="{{route('products.index')}}"><i class="fas fa-fw fa-cog"></i>
                 <span>CU2 Gestionar Productos</span></a>
         </li>
         <li class="nav-item">
@@ -91,7 +91,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#"><i class="fas fa-fw fa-cog"></i>
+            <a class="nav-link collapsed" href="{{route('warranties.index')}}"><i class="fas fa-fw fa-cog"></i>
                 <span>CU3 Gestionar Garantia</span></a>
         </li>
 

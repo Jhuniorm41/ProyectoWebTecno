@@ -3,15 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Client extends Model
+class TypeProduct extends Model
 {
-    use SoftDeletes;
-
-    protected $fillable = [
-        'name', 'nit'];
-
     public function products()
     {
         return $this->hasMany('App\Product');

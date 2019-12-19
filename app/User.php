@@ -42,6 +42,8 @@ class User extends Authenticatable
     ];
 
 
+
+
     public function isRoot()
     {
         if ($this->root == '1') {
