@@ -16,4 +16,8 @@ class Client extends Model
     {
         return $this->hasMany('App\Product');
     }
+    public function reservations()
+    {
+        return $this->hasMany('App\Reservation');
+    }
 }
