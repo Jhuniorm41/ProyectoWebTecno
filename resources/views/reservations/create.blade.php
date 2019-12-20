@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8">
-                <h2>Registrar Garantia</h2>
+                <h2>Registrar Reserva</h2>
                 <form method="post" action="{{route('reservations.store')}}">
                     @csrf
                     <div class="row">

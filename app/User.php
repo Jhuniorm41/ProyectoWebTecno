@@ -84,6 +84,15 @@ class User extends Authenticatable
         return $page->cu." || Numero de visitas: ".$page->count;
     }
 
+    public function getStatsPages(){
+        $array = [];
+        for($i=1; $i <= 8;$i++){
+            $page = Page::findOrFail($i);
+            array_push($array,$page->count);
+        }
+       return json_encode($array);
+    }
+
 
 
 
