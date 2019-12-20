@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Maintenance;
 use App\Quotation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MaintenancesController extends Controller
 {
@@ -15,6 +16,7 @@ class MaintenancesController extends Controller
      */
     public function index()
     {
+        Auth::user()->countPage(3);
         $maintenances = Maintenance::all();
         return view('maintenances.index')->with('maintenances',$maintenances);
     }
@@ -26,6 +28,7 @@ class MaintenancesController extends Controller
      */
     public function create()
     {
+        Auth::user()->countPage(3);
         $quotes = Quotation::all();
         return view('maintenances.create')->with('quotes', $quotes);
     }
@@ -85,6 +88,7 @@ class MaintenancesController extends Controller
      */
     public function edit($id)
     {
+        Auth::user()->countPage(3);
         $maintenance = Maintenance::findOrFail($id);
         return view('maintenances.edit')->with('maintenance',$maintenance);
     }
