@@ -69,9 +69,11 @@ Route::resource('clients', 'ClientsController');
 Route::resource('personals', 'PersonalsController');
 //CASO DE USO 2 GESTIONAR PRODUCTOS
 Route::resource('products', 'ProductsController');
-
 //CASO DE USO 4 GESTIONAR GARANTIAS
 Route::resource('warranties', 'WarrantiesController');
+
+Route::post('products/reporte', ['as' => 'products.reporte_reparaciones', 'uses' => 'ProductsController@reportReparaciones']);
+
 
 
 

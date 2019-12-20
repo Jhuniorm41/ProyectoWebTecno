@@ -104,4 +104,8 @@ class ProductsController extends Controller
         $product->delete();
         return redirect()->route('products.index');
     }
+
+    public function reportReparaciones() {
+        
+    }
 }
