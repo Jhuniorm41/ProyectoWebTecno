@@ -25,7 +25,7 @@
                     </div>
                     <div class="form-group">
                         <label for="order_id">Tipo de Servicio</label>
-                        <select class="form-control" id="type_service_id" name="type_service_id">
+                        <select class="form-control" id="type_service_id" name="type_service_id" required>
                             @foreach($services as $service)
                                 <option value="{{$service->id}}">{{$service->description}}</option>
                             @endforeach
@@ -33,7 +33,7 @@
                     </div>
                     <div class="form-group">
                         <label for="order_id">Tipo de Producto</label>
-                        <select class="form-control" id="type_product_id" name="type_product_id">
+                        <select class="form-control" id="type_product_id" name="type_product_id" required>
                             @foreach($products as $product)
                                 <option value="{{$product->id}}">{{$product->description}}</option>
                             @endforeach

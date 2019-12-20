@@ -8,11 +8,11 @@
             @method('patch')
             <div class="form-group">
                 <label for="nombre">Nombre</label>
-                <input type="text" class="form-control" id="name" name="name" value="{{$personal->name}}" required>
+                <input type="text" class="form-control" id="name" name="name" value="{{$personal->name}}" required minlength="1" maxlength="50">
             </div>
             <div class="form-group">
                     <label for="Cargo">Cargo</label>
-                <input type="text" class="form-control" id="position" name="position" value="{{$personal->position}}" required>
+                <input type="text" class="form-control" id="position" name="position" value="{{$personal->position}}" required minlength="1" maxlength="50">
             </div>
             <div class="form-group">
                 <label for="fecha">Fecha de Admision</label>
@@ -20,7 +20,7 @@
             </div>
             <div class="form-group">
                 <label for="CI">CI</label>
-                <input type="number" class="form-control" id="ci" name="ci" value="{{$personal->ci}}" required>
+                <input type="number" class="form-control" id="ci" name="ci" value="{{$personal->ci}}" required min="1" max="999999999">
             </div>
             <button type="submit" class="btn btn-primary">Editar</button>
         </form>
