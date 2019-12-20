@@ -7,6 +7,7 @@ use App\Product;
 use App\TypeProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class ProductsController extends Controller
 {
@@ -105,7 +106,44 @@ class ProductsController extends Controller
         return redirect()->route('products.index');
     }
 
-    public function reportReparaciones() {
-        
+    public function reportReparaciones($id) {
+        //sdd($id);
+        $data = Product::join('quotations as q','q.product_id', 'products.id')
+                        ->join('maintenances as m', 'm.quotation_id', 'q.id')
+                        ->join('clients as c', 'c.id', 'products.client_id')
+                        ->select('m.*', 'c.*')
+                        ->where('products.id', $id)
+                        ->get();
+        //dd($data);
+        $name = Auth()->user()->name;
+
+        $year = date('Y');
+        $mes = date('m');
+        $dia = date('d');
+
+        $hora = date('H');
+        $minuto = date('i');
+        $segundo = date('s');
+
+        $fecha = $dia.'/'.$mes.'/'.$year;
+        $hora = $hora.':'.$minuto.':'.$segundo;
+
+
+        $pdf = PDF::loadView('products.productsReport', [
+            'fecha' => $fecha,
+            'data' => $data
+        ]);
+
+        $pdf->setPaper('A4', 'landscape');
+
+        $pdf->output();
+        $dom_pdf = $pdf->getDomPDF();
+
+        $canvas = $dom_pdf->get_canvas();
+        $canvas->page_text(750, 570, "Pag. {PAGE_NUM} de {PAGE_COUNT}", null, 10, array(0, 0, 0));
+
+        $canvas->page_text(50, 570, $name, null, 10, array(0, 0, 0));
+     
+        return $pdf->stream('maintances.pdf');
     }
 }

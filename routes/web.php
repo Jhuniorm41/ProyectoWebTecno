@@ -52,5 +52,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/stats', 'StatsController@index')->name('stats.index');
 });
 
-Route::post('products/reporte', ['as' => 'products.reporte_reparaciones', 'uses' => 'ProductsController@reportReparaciones']);
+Route::get('products/reporte/{id}', ['as' => 'products.reporte_reparaciones', 'uses' => 'ProductsController@reportReparaciones']);
 

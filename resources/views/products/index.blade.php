@@ -32,10 +32,7 @@
                         @method('delete')
                         <input type="submit" class="btn btn-danger" value="eliminar">
                     </form>
-                    <form action="{{route('products.reporte_reparaciones')}}" method="post">
-                        @csrf
-                        <input type="submit" class="btn btn-danger" value="Reporte Reparaciones">
-                    </form>
+                    <a href="{{route('products.reporte_reparaciones',$product->id)}}"><button type="button" class="btn btn-danger">Reporte Reparaciones</button></a>
                 </td>
             </tr>
             @endforeach
