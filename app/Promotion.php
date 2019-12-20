@@ -3,19 +3,20 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class QuotationDetail extends Model
+class Promotion extends Model
 {
     use SoftDeletes;
+
     protected $fillable = [
-        'subtotal', 'type_service_id', 'quotation_id'
+        'date_start', 'date_finish', 'name','type_service_id','type_product_id','discount',
     ];
 
-    public function quotation()
+
+    public function type_product()
     {
-        return $this->belongsTo('App\Quotation');
+        return $this->belongsTo('App\TypeProduct');
     }
     public function type_service()
     {

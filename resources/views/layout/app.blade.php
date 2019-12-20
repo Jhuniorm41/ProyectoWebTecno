@@ -13,11 +13,13 @@
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" rel="stylesheet"
+          type="text/css">
     <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-          rel="stylesheet">
-
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <script  src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
     <!-- Custom styles for this template-->
     <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
     <style>
@@ -38,7 +40,7 @@
     <ul class="navbar-nav bg-gradient-{{Auth::user()->color}} sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('home')}}">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
@@ -60,73 +62,98 @@
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            Paquete 1
+            Paquete Administracion
         </div>
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
+            @if(Auth()->user()->isPersonal() || Auth()->user()->isRoot() )
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                   aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>CU1 Gestionar Usuario</span>
+                </a>
 
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-               aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fas fa-fw fa-cog"></i>
-                <span>CU1 Gestionar Usuario</span>
-            </a>
-
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-
-                    <a class="collapse-item" href="{{route('clients.index')}}">Gestionar Cliente</a>
-                    <a class="collapse-item" href="{{route('personals.index')}}">Gestionar Personal</a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        @if(Auth()->user()->isPersonal())
+                            <a class="collapse-item" href="{{route('clients.index')}}">Gestionar Cliente</a>
+                        @endif
+                        @if(Auth()->user()->isRoot())
+                            <a class="collapse-item" href="{{route('personals.index')}}">Gestionar Personal</a>
+                        @endif
+                    </div>
                 </div>
-            </div>
+            @endif
         </li>
+        <hr class="sidebar-divider">
 
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="{{route('products.index')}}"><i class="fas fa-fw fa-cog"></i>
-                <span>CU2 Gestionar Productos</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#"><i class="fas fa-fw fa-cog"></i>
-                <span>CU2.1 Gestionar Servicio de Mantenimiento</span></a>
-        </li>
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Paquete Servicio
+        </div>
+        @if(Auth()->user()->isPersonal())
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{route('products.index')}}"><i class="fas fa-fw fa-cog"></i>
+                    <span>CU2 Gestionar Productos</span></a>
+            </li>
+        @endif
+        @if(Auth()->user()->isPersonal())
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{route('maintenances.index')}}"><i class="fas fa-fw fa-cog"></i>
+                    <span>CU3 Gestionar Servicio de Mantenimiento</span></a>
+            </li>
+        @endif
+        @if(Auth()->user()->isPersonal())
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{route('warranties.index')}}"><i class="fas fa-fw fa-cog"></i>
+                    <span>CU4 Gestionar Garantia</span></a>
+            </li>
+        @endif
 
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="{{route('warranties.index')}}"><i class="fas fa-fw fa-cog"></i>
-                <span>CU3 Gestionar Garantia</span></a>
-        </li>
+        @if(Auth()->user()->isPersonal() || Auth()->user()->isClient())
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{route('reservations.index')}}"><i class="fas fa-fw fa-cog"></i>
+                    <span>CU5 Gestionar Reserva</span></a>
+            </li>
+        @endif
+        @if(Auth()->user()->isPersonal())
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{route('quotes.index')}}"><i class="fas fa-fw fa-cog"></i>
+                    <span>CU6 Gestionar Cotizaciones</span></a>
+            </li>
+        @endif
+        @if(Auth()->user()->isPersonal())
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{route('promotions.index')}}"><i class="fas fa-fw fa-cog"></i>
+                    <span>CU7 Gestionar Promociones</span></a>
+            </li>
+        @endif
+        <hr class="sidebar-divider">
 
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Paq. Reportes y Estadisticas
+        </div>
+        @if(Auth()->user()->isPersonal())
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
+                   aria-expanded="true" aria-controls="collapseThree">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>CU8 Reporte y Estadisticas</span>
+                </a>
 
+                <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
 
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#"><i class="fas fa-fw fa-cog"></i>
-                <span>CU3 Gestionar Reserva</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#"><i class="fas fa-fw fa-cog"></i>
-                <span>CU4 Gestionar Cotizaciones</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#"><i class="fas fa-fw fa-cog"></i>
-                <span>CU4 Gestionar Promociones</span></a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
-               aria-expanded="true" aria-controls="collapseThree">
-                <i class="fas fa-fw fa-cog"></i>
-                <span>Reporte y Estadisticas</span>
-            </a>
-
-            <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-
-                    <a class="collapse-item" href="#">Reportes</a>
-                    <a class="collapse-item" href="#">Estadisticas</a>
+                        <a class="collapse-item" href="#">Reportes</a>
+                        <a class="collapse-item" href="{{route('stats.index')}}">Estadisticas</a>
+                    </div>
                 </div>
-            </div>
-        </li>
+            </li>
+    @endif
 
-        <!-- Nav Item - Utilities Collapse Menu
+    <!-- Nav Item - Utilities Collapse Menu
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                aria-expanded="true" aria-controls="collapseUtilities">
@@ -257,7 +284,6 @@
                     </li>
 
 
-
                     <div class="topbar-divider d-none d-sm-block"></div>
 
                     <!-- Nav Item - User Information -->
@@ -269,14 +295,6 @@
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Profile
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Settings
-                            </a>
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModa2">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Personalizar
@@ -399,11 +417,11 @@
 <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
 
 <!-- Page level plugins -->
-<script src="{{asset('vendor/chart.js/Chart.min.js')}}"></script>
+
+
 
 <!-- Page level custom scripts -->
-<script src="{{asset('js/demo/chart-area-demo.js')}}"></script>
-<script src="{{asset('js/demo/chart-pie-demo.js')}}"></script>
+
 <!--=================ESTADISTICAS=====================-->
 
 </body>
