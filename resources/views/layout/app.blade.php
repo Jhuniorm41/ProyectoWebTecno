@@ -133,20 +133,20 @@
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            Paq. Reportes y Estadisticas
+            Paq. Estadisticas
         </div>
         @if(Auth()->user()->isPersonal())
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
                    aria-expanded="true" aria-controls="collapseThree">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>CU8 Reporte y Estadisticas</span>
+                    <span>CU8 Estadisticas</span>
                 </a>
 
                 <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
 
-                        <a class="collapse-item" href="#">Reportes</a>
+        
                         <a class="collapse-item" href="{{route('stats.index')}}">Estadisticas</a>
                     </div>
                 </div>

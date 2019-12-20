@@ -3,13 +3,13 @@
 @section('content')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js">
     <div class="container">
-            <h3>Cantidad de Productos por Tipo de producto</h3>
+            <h3>Cantidad de Productos registrados agrupado por Tipo de producto</h3>
             <br>
             <div class="row">
                 <canvas id="myChart" width="100%" height="50px"></canvas>
             </div>
         <br><br>
-        <h3>Cantidad de Reservas por Cliente</h3>
+        <h3>Cantidad de Reservas realizadas por Cliente</h3>
         <br>
         <div class="row">
             <canvas id="myChart1" width="100%" height="50px"></canvas>
