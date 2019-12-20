@@ -28,6 +28,5 @@
             @endforeach
             </tbody>
         </table>
-        <h6>{{Auth()->user()->showCounter(5)}}</h6>
     </div>
 @endsection

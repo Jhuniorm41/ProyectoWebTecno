@@ -147,7 +147,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
 
                         <a class="collapse-item" href="#">Reportes</a>
-                        <a class="collapse-item" href="#">Estadisticas</a>
+                        <a class="collapse-item" href="{{route('stats.index')}}">Estadisticas</a>
                     </div>
                 </div>
             </li>

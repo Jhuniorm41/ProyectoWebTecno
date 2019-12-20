@@ -3,11 +3,15 @@
 @section('content')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js">
     <div class="container">
-        <h3>Estadisticas de Acceso por Pagina</h3>
-        <br>
-        <div class="row">
-            <canvas id="myChart" width="100%" height="50px"></canvas>
-        </div>
+        @if(!Auth()->user()->isClient())
+            <h3>Estadisticas de Acceso por Pagina</h3>
+            <br>
+            <div class="row">
+                <canvas id="myChart" width="100%" height="50px"></canvas>
+            </div>
+        @else
+            <h3>Bienvenido cliente! registre su reserva!</h3>
+        @endif
     </div>
 
     <script>
