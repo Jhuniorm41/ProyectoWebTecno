@@ -2,10 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="41de973a-0c99-4637-9957-b6264de12135" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/quotes/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/quotes/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/quotes/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/quotes_detail/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/quotes_detail/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/quotes_detail/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/reservations/client.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/reservations/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/reservations/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/reservations/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Client.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/TypeProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/TypeProduct.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PromotionsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PromotionsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ReservationsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ReservationsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/TypeService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/TypeService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layout/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sales/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/promotions/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sales/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/promotions/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sales/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/promotions/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -118,7 +134,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/database/seeds" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -130,6 +146,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\tecno_imprisol\resources\views" />
+      <recent name="C:\xampp\htdocs\tecno_imprisol\resources\views\reservations" />
       <recent name="C:\xampp\htdocs\tecno_imprisol\database\seeds" />
     </key>
   </component>
@@ -164,7 +182,9 @@
       <workItem from="1576556855354" duration="9603000" />
       <workItem from="1576702580072" duration="586000" />
       <workItem from="1576708739076" duration="11665000" />
-      <workItem from="1576761269380" duration="2062000" />
+      <workItem from="1576761269380" duration="2141000" />
+      <workItem from="1576768875296" duration="20257000" />
+      <workItem from="1576802695763" duration="6949000" />
     </task>
     <servers />
   </component>

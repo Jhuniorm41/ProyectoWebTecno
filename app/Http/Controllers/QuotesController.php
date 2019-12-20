@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
+use App\Quotation;
 use App\Reservation;
-use Carbon\Traits\Date;
+use App\TypeService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class ReservationsController extends Controller
+class QuotesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,15 +18,9 @@ class ReservationsController extends Controller
      */
     public function index()
     {
-        Auth::user()->countPage(5);
-        if (Auth::user()->isClient()){
-            $reservations = Reservation::where('client_id', Auth()->id())->get();
-            return view('reservations.client')->with('reservations', $reservations);
-        }
-        else{
-            $reservations = Reservation::all();
-            return view('reservations.index')->with('reservations', $reservations);
-        }
+        Auth::user()->countPage(6);
+        $quotes = Quotation::all();
+        return view('quotes.index')->with('quotes',$quotes);
     }
 
     /**
@@ -34,8 +30,10 @@ class ReservationsController extends Controller
      */
     public function create()
     {
-        Auth::user()->countPage(5);
-        return view('reservations.create');
+        Auth::user()->countPage(6);
+        $reservations = Reservation::all();
+        $products = Product::all();
+        return view('quotes.create')->with('products',$products)->with('reservations', $reservations);
     }
 
     /**
@@ -47,13 +45,17 @@ class ReservationsController extends Controller
     public function store(Request $request)
     {
         $date = date('Y-m-d');
-        $reservation = new Reservation();
-        $reservation->code = $request->get('code');
-        $reservation->date_registered = $date;
-        $reservation->date_reservation = $request->get('date_reservation');
-        $reservation->client_id = Auth()->id();
-        $reservation->save();
-        return redirect()->route('reservations.index');
+        $quotation = new Quotation();
+        $quotation->code = $request->get('code');
+        $quotation->amount = 0;
+        $quotation->date_register = $date;
+        $quotation->reservation_id = $request->get('reservation_id');
+        $quotation->product_id = $request->get('product_id');
+        $quotation->save();
+
+        $quotation = Quotation::latest()->first();
+        $type_services = TypeService::all();
+        return view('quotes_detail.create')->with('quotation',$quotation)->with('type_services', $type_services);
     }
 
     /**
@@ -75,7 +77,7 @@ class ReservationsController extends Controller
      */
     public function edit($id)
     {
-        Auth::user()->countPage(5);
+        Auth::user()->countPage(6);
     }
 
     /**
@@ -98,8 +100,8 @@ class ReservationsController extends Controller
      */
     public function destroy($id)
     {
-        $reservation = Reservation::findOrFail($id);
-        $reservation->delete();
-        return redirect()->route('reservations.index');
+        $quotation = Quotation::findOrFail($id);
+        $quotation->delete();
+        return redirect()->route('quotes.index');
     }
 }

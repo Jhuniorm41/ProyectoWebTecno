@@ -23,4 +23,8 @@ class Product extends Model
     {
         return $this->hasMany('App\Warranty');
     }
+    public function quotations()
+    {
+        return $this->hasMany('App\Quotation');
+    }
 }

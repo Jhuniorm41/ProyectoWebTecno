@@ -73,6 +73,9 @@ Route::resource('products', 'ProductsController');
 Route::resource('warranties', 'WarrantiesController');
 //CASO DE USO 5 GESTIONAR RESERVAS
 Route::resource('reservations', 'ReservationsController');
+//CASO DE USO 6 GESTIONAR COTIZACIONES
+Route::resource('quotes', 'QuotesController');
+Route::resource('quotesdetail', 'QuotesDetailController');
 //CASO DE USO 7 GESTIONAR PROMOCIONES
 Route::resource('promotions', 'PromotionsController');
 

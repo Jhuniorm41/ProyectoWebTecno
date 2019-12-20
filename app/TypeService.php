@@ -11,4 +11,8 @@ class TypeService extends Model
     {
         return $this->hasMany('App\Promotion');
     }
+    public function quotation_details()
+    {
+        return $this->hasMany('App\QuotationDetail');
+    }
 }

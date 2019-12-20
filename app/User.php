@@ -67,9 +67,9 @@ class User extends Authenticatable
         return false;
     }
 
-    public function getStrRandom($length = 10)
+    public function getStrRandom($length = 5)
     {
-        $pool = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $pool = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         return substr(str_shuffle(str_repeat($pool, 5)), 0, $length);
     }
 
@@ -83,6 +83,7 @@ class User extends Authenticatable
         $page = Page::findOrFail($id);
         return $page->cu." || Numero de visitas: ".$page->count;
     }
+
 
 
 
