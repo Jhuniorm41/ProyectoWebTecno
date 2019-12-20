@@ -10,7 +10,7 @@
                     <div class="row">
                         <div class="form-group">
                             <label for="date">Codigo</label>
-                            <input type="text" class="form-control" id="code" name="code"  value="{{Auth()->user()->getStrRandom()}}" readonly required>
+                            <input type="text" class="form-control" id="code" name="code"  value="{{Auth()->user()->getStrRandom()}}" readonly required >
                         </div>
                     </div>
                     <div class="row">

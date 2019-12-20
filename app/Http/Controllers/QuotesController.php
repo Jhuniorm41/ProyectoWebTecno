@@ -78,6 +78,8 @@ class QuotesController extends Controller
     public function edit($id)
     {
         Auth::user()->countPage(6);
+        $quotation = Quotation::findOrFail($id);
+        return view('quotes.edit')->with('quotation',$quotation);
     }
 
     /**
@@ -89,7 +91,10 @@ class QuotesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $quotation = Quotation::findOrFail($id);
+        $quotation->amount = $request->get('amount');
+        $quotation->save();
+        return redirect()->route('quotes.index');
     }
 
     /**

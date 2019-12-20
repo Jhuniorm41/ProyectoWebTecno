@@ -69,6 +69,8 @@ Route::resource('clients', 'ClientsController');
 Route::resource('personals', 'PersonalsController');
 //CASO DE USO 2 GESTIONAR PRODUCTOS
 Route::resource('products', 'ProductsController');
+//CASO DE USO 3 GESTIONAR MANTENIMIENTOS
+Route::resource('maintenances', 'MaintenancesController');
 //CASO DE USO 4 GESTIONAR GARANTIAS
 Route::resource('warranties', 'WarrantiesController');
 //CASO DE USO 5 GESTIONAR RESERVAS

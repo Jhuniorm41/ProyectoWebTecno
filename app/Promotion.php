@@ -10,7 +10,7 @@ class Promotion extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'date_start', 'date_finish', 'name','type_service_id','type_product_id','discount'
+        'date_start', 'date_finish', 'name','type_service_id','type_product_id','discount',
     ];
 
 

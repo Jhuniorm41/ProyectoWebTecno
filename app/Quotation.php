@@ -20,4 +20,9 @@ class Quotation extends Model
     {
         return $this->belongsTo('App\Product');
     }
+
+    public function maintenance()
+    {
+        return $this->hasOne('App\Maintenance');
+    }
 }

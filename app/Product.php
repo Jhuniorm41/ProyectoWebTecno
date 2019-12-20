@@ -19,9 +19,9 @@ class Product extends Model
     {
         return $this->belongsTo('App\TypeProduct');
     }
-    public function warranties()
+    public function warranty()
     {
-        return $this->hasMany('App\Warranty');
+        return $this->hasOne('App\Warranty');
     }
     public function quotations()
     {

@@ -40,7 +40,7 @@
     <ul class="navbar-nav bg-gradient-{{Auth::user()->color}} sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('home')}}">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
@@ -62,7 +62,7 @@
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            Paquete 1
+            Paquete Administracion
         </div>
 
         <!-- Nav Item - Pages Collapse Menu -->
@@ -86,6 +86,12 @@
                 </div>
             @endif
         </li>
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Paquete Servicio
+        </div>
         @if(Auth()->user()->isPersonal())
             <li class="nav-item">
                 <a class="nav-link collapsed" href="{{route('products.index')}}"><i class="fas fa-fw fa-cog"></i>
@@ -94,7 +100,7 @@
         @endif
         @if(Auth()->user()->isPersonal())
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#"><i class="fas fa-fw fa-cog"></i>
+                <a class="nav-link collapsed" href="{{route('maintenances.index')}}"><i class="fas fa-fw fa-cog"></i>
                     <span>CU3 Gestionar Servicio de Mantenimiento</span></a>
             </li>
         @endif
@@ -123,6 +129,12 @@
                     <span>CU7 Gestionar Promociones</span></a>
             </li>
         @endif
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Paq. Reportes y Estadisticas
+        </div>
         @if(Auth()->user()->isPersonal())
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"

@@ -14,16 +14,19 @@
                                    value="{{$quotation->id}}" required>
                         </div>
                         <div class="form-group">
+                            <input type="hidden" value="{{$i=0}}">
                             @foreach($type_services as $type_service)
                                 <h5>{{$type_service->description}}</h5>
                                 <br>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="{{$type_service->id}}"
-                                           name="type_service_id[]">
+                                           name="type_service_id{{$i}}">
                                     <br>
                                 </div>
-                                <input type="number" class="form-control"name="subtotal[]">
+                                <input type="number" class="form-control"name="subtotal{{$i}}" min="1" max="9999999">
                                 <br>
+                                <input type="hidden" value="{{$i++}}">
+
                             @endforeach
                         </div>
                     </div>

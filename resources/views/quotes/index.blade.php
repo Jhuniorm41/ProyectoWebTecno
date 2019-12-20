@@ -2,9 +2,15 @@
 
 @section('content')
     <div class="container-fluid">
+
         <a href="{{route('quotes.create')}}">
             <button type="button" class="btn btn-primary">Registrar Cotizacion</button>
         </a>
+        @if (Session::has('success'))
+            <div class="alert alert-success">
+                <p>{{ Session::get('success') }}</p>
+            </div>
+        @endif
         <br>
         <table class="table">
             <thead>
